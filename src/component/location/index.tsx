@@ -22,49 +22,61 @@ export const Location = () => {
           </div>
           <div className="heading">대중교통</div>
           <div />
+          {/* 변경된 대중교통 내용 */}
           <div className="content">
-            * 지하철 이용시
-            <br />
-            지하철 2호선, 5호선 <b>영등포구청역 4번출구</b>
-            <br />
-            → 나와서 우회전 후 566m(도보 약 7분)
-            <br />→ 코레일 유통사옥 2층
-            <br />* 셔틀버스
-            <br />
-            → <b>영등포구청역 5번출구 뒤</b>
-          </div>
-          <div />
-          <div className="content">
-            * 버스 이용 시
-            <br />
-            - <b>서울시립청소년 문화센터[19-439]</b> 간선 660
-            <br />
-            - <b>하이서울유스호스텔[19-127]</b> 일반 5
-            <br />
-            - <b>신화병원[19-121]</b> 간선 605, 661, 760
-            <br />
-            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;좌석 700, 지선 5616, 5714
-            <br />
-            - <b>삼환아파트[19-125]</b> 직행 9030, 8000
-            <br />
+            <div className="info-block">
+              <div className="info-label">지하철</div>
+              <div className="info-desc">
+                <span className="subway-line line-2">2호선</span>
+                <span className="subway-line line-5">5호선</span>
+                <b>영등포구청역 4번 출구</b>
+                <p>나와서 우회전 후 도보 약 7분 (코레일 유통사옥 2층)</p>
+              </div>
+            </div>
+
+            <div className="info-block">
+              <div className="info-label">셔틀버스</div>
+              <div className="info-desc">
+                <b>영등포구청역 5번 출구 뒤</b>
+                <p>예식 당일 2대 상시 운행</p>
+              </div>
+            </div>
+
+            <div className="info-block">
+              <div className="info-label">버스</div>
+              <div className="info-desc">
+                <p><b>서울시립청소년 문화센터</b> <span className="bus blue">간선</span> 660</p>
+                <p><b>신화병원</b> <span className="bus blue">간선</span> 605, 661, 760</p>
+                <p>&emsp;&emsp;&emsp;&emsp;&emsp;<span className="bus green">지선</span> 5616, 5714</p>
+                <p><b>삼환아파트</b> <span className="bus red">직행</span> 9030, 8000</p>
+                <p><b>하이서울유스호스텔</b> <span className="bus normal">일반</span> 5</p>
+              </div>
+            </div>
           </div>
         </div>
+
         <div className="location-info">
           <div className="transportation-icon-wrapper">
             <CarIcon className="transportation-icon" />
           </div>
           <div className="heading">자가용</div>
           <div />
+          {/* 변경된 자가용 내용 */}
           <div className="content">
-            네이버 지도, 카카오 네비, 티맵 등 이용
-            <br />
-            <b>더 베르지</b> 검색
-            <br />
-            - 주차 요금은 2시간 무료입니다.
-            <br />
-            (주차장 이용 시 웨딩홀과 바로 연결)
+            <div className="info-block">
+              <div className="info-label">내비게이션</div>
+              <div className="info-desc">
+                <b>더 베르지</b> 검색
+              </div>
+            </div>
+            <div className="info-block">
+              <div className="info-label">주차안내</div>
+              <div className="info-desc">
+                <b>하객 2시간 무료 주차</b>
+                <p>주차장 이용 시 웨딩홀과 바로 연결됩니다.</p>
+              </div>
+            </div>
           </div>
-          <div />
         </div>
       </LazyDiv>
     </>
