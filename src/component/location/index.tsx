@@ -30,7 +30,8 @@ export const Location = () => {
                 <span className="subway-line line-2">2호선</span>
                 <span className="subway-line line-5">5호선</span>
                 <b>영등포구청역 4번 출구</b>
-                <p>나와서 우회전 후 도보 약 7분 (코레일 유통사옥 2층)</p>
+                <p>나와서 우회전 후 도보 약 7분</p>
+                <p>(코레일 유통사옥 2층)</p>
               </div>
             </div>
 
