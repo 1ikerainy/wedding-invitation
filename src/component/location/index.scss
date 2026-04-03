@@ -90,20 +90,20 @@
     }
   }
 
+  /* 💡 구조가 수정된 부분입니다! */
   .location-info {
     display: grid;
-    grid-template-columns: 2rem 1fr;
+    /* 1번째 열: 아이콘(2rem), 2번째 열: 제목(나머지 공간) */
+    grid-template-columns: 2rem 1fr; 
     text-align: left;
-    row-gap: 0.7rem;
+    row-gap: 0.2rem;
     margin: 1rem 0;
 
-    > * {
-      align-self: center;
-    }
-
+    /* 아이콘 가운데 정렬 */
     .transportation-icon-wrapper {
       display: flex;
       justify-content: center;
+      align-items: center; 
       .transportation-icon {
         width: 1.3rem;
         height: 1.3rem;
@@ -112,15 +112,91 @@
       }
     }
 
+    /* 제목 (대중교통, 자가용) */
     .heading {
       font-size: 1rem;
       opacity: 0.7;
       color: var(--theme-color);
+      align-self: center;
     }
 
+    /* 💡 핵심: 상세 내용은 두 열을 모두 합쳐서(span 2) 꽉 차게 만듭니다! */
     .content {
+      grid-column: span 2; 
       font-size: 0.9rem;
       line-height: 1.4;
+      margin-top: 0.4rem; /* 제목과 살짝 띄우기 */
     }
+  }
+
+  .subway-line {
+    display: inline-block;
+    color: #ffffff;
+    border-radius: 12px;
+    padding: 2px 8px;
+    font-size: 0.85em;
+    font-weight: bold;
+    margin-right: 6px;
+    vertical-align: middle;
+
+    &.line-2 { background-color: #00A84D; }
+    &.line-5 { background-color: #996CAC; }
+  }
+
+  /* 교통편 안내 라벨 디자인 */
+  .info-block {
+    display: flex;
+    margin-bottom: 20px;
+    gap: 12px;
+    align-items: flex-start;
+    text-align: left;
+    /* 💡 아이콘 세로줄에 맞추기 위해 살짝만 띄워줍니다. */
+    margin-left: 0.5rem; 
+
+    .info-label {
+      flex-shrink: 0;
+      background-color: #fff0f5; 
+      color: #db7093; 
+      padding: 5px 10px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.85em;
+      text-align: center;
+      box-sizing: border-box;
+      width: 90px; 
+      word-break: keep-all; 
+      white-space: nowrap; 
+    }
+
+    .info-desc {
+      flex-grow: 1;
+      font-size: 0.9em;
+      line-height: 1.5;
+
+      b { color: #222; }
+
+      p {
+        margin: 4px 0 0 0;
+        color: #666;
+        font-size: 0.95em;
+        word-break: keep-all; 
+      }
+    }
+  }
+
+  .bus {
+    display: inline-block;
+    font-size: 0.75em;
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: #fff;
+    font-weight: 600;
+    margin: 0 2px 0 4px;
+    vertical-align: text-bottom;
+
+    &.blue { background-color: #3b5998; }   
+    &.green { background-color: #51b05c; }  
+    &.red { background-color: #e24939; }    
+    &.normal { background-color: #20b2aa; } 
   }
 }

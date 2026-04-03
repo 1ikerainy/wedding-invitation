@@ -11,8 +11,6 @@ import ktalkIcon from "../../icons/ktalk-icon.png"
 import { LazyDiv } from "../lazyDiv"
 import { useKakao } from "../store"
 
-const baseUrl = import.meta.env.BASE_URL
-
 export const ShareButton = () => {
   const kakao = useKakao()
   return (
@@ -21,6 +19,8 @@ export const ShareButton = () => {
         className="ktalk-share"
         onClick={() => {
           if (!kakao) {
+            // 💡 만약 카카오 설정이 덜 되었다면 먹통이 되지 않고 알림을 띄웁니다.
+            alert("카카오톡 공유 기능을 불러오지 못했습니다. 새로고침 후 다시 시도해 주세요.")
             return
           }
 
@@ -32,39 +32,20 @@ export const ShareButton = () => {
               title: `${GROOM_FULLNAME} ❤️ ${BRIDE_FULLNAME}의 결혼식에 초대합니다.`,
               description:
                 WEDDING_DATE.format(WEDDING_DATE_FORMAT) + "\n" + LOCATION,
-              imageUrl:
-                window.location.protocol +
-                "//" +
-                window.location.host +
-                baseUrl +
-                "/preview_image.png",
+              
+              // 💡 복잡했던 주소 계산식을 origin 하나로 아주 깔끔하게 정리했습니다!
+              imageUrl: window.location.origin + "/preview_image.png",
               link: {
-                mobileWebUrl:
-                  window.location.protocol +
-                  "//" +
-                  window.location.host +
-                  baseUrl,
-                webUrl:
-                  window.location.protocol +
-                  "//" +
-                  window.location.host +
-                  baseUrl,
+                mobileWebUrl: window.location.origin,
+                webUrl: window.location.origin,
               },
             },
             buttons: [
               {
                 title: "초대장 보기",
                 link: {
-                  mobileWebUrl:
-                    window.location.protocol +
-                    "//" +
-                    window.location.host +
-                    baseUrl,
-                  webUrl:
-                    window.location.protocol +
-                    "//" +
-                    window.location.host +
-                    baseUrl,
+                  mobileWebUrl: window.location.origin,
+                  webUrl: window.location.origin,
                 },
               },
             ],

@@ -126,13 +126,8 @@ const NaverMap = () => {
             switch (checkDevice()) {
               case "ios":
               case "android":
-                if (kakao)
-                  kakao.Navi.start({
-                    name: LOCATION,
-                    x: WEDDING_HALL_POSITION[0],
-                    y: WEDDING_HALL_POSITION[1],
-                    coordType: "wgs84",
-                  })
+                // 카카오 SDK 대신, 빠르고 확실한 카카오맵 직접 호출로 변경!
+                window.open(`kakaomap://place?id=${KMAP_PLACE_ID}`, "_self")
                 break
               default:
                 window.open(
@@ -144,7 +139,7 @@ const NaverMap = () => {
           }}
         >
           <img src={knaviIcon} alt="kakao-navi-icon" />
-          카카오 내비
+          카카오맵
         </button>
         <button
           onClick={() => {
