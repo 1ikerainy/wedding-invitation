@@ -4,6 +4,7 @@ import {
   LOCATION,
   WEDDING_DATE,
   WEDDING_DATE_FORMAT,
+  KMAP_PLACE_ID, // 💡 지도 버튼을 위해 KMAP_PLACE_ID를 새로 불러옵니다!
 } from "../../const"
 import ktalkIcon from "../../icons/ktalk-icon.png"
 import { LazyDiv } from "../lazyDiv"
@@ -21,7 +22,6 @@ export const ShareButton = () => {
             return
           }
 
-          // 💡 핵심 해결책: 끝에 슬래시(/)를 붙여서 완벽한 웹사이트 주소로 만듭니다!
           const shareUrl = window.location.origin + "/"
 
           kakao.Share.sendDefault({
@@ -33,7 +33,7 @@ export const ShareButton = () => {
               imageUrl: shareUrl + "preview_image.png",
               link: {
                 mobileWebUrl: shareUrl,
-                webUrl: shareUrl, // 이제 PC 카카오톡도 제대로 된 주소로 인식합니다!
+                webUrl: shareUrl, 
               },
             },
             buttons: [
@@ -42,6 +42,14 @@ export const ShareButton = () => {
                 link: {
                   mobileWebUrl: shareUrl,
                   webUrl: shareUrl,
+                },
+              },
+              // 💡 여기에 두 번째 버튼(위치 안내)을 추가했습니다!
+              {
+                title: "위치 안내",
+                link: {
+                  mobileWebUrl: `https://map.kakao.com/link/map/${KMAP_PLACE_ID}`,
+                  webUrl: `https://map.kakao.com/link/map/${KMAP_PLACE_ID}`,
                 },
               },
             ],
