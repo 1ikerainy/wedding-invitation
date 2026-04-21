@@ -25,15 +25,15 @@ export const ShareButton = () => {
           }
 
           kakao.Share.sendDefault({
-            objectType: "location",
-            address: SHARE_ADDRESS,
-            addressTitle: SHARE_ADDRESS_TITLE,
+            // 💡 1. 템플릿 타입을 "location"에서 "feed"로 변경합니다.
+            objectType: "feed",
+            
+            // 💡 2. feed 템플릿에서는 address 관련 속성이 필요 없으므로 삭제했습니다.
+            
             content: {
               title: `${GROOM_FULLNAME} ❤️ ${BRIDE_FULLNAME}의 결혼식에 초대합니다.`,
               description:
                 WEDDING_DATE.format(WEDDING_DATE_FORMAT) + "\n" + LOCATION,
-              
-              // 💡 복잡했던 주소 계산식을 origin 하나로 아주 깔끔하게 정리했습니다!
               imageUrl: window.location.origin + "/preview_image.png",
               link: {
                 mobileWebUrl: window.location.origin,
@@ -42,7 +42,8 @@ export const ShareButton = () => {
             },
             buttons: [
               {
-                title: "초대장 보기",
+                // 💡 3. 버튼 이름도 '위치 보기'에서 '청첩장 보기'로 변경!
+                title: "청첩장 보기", 
                 link: {
                   mobileWebUrl: window.location.origin,
                   webUrl: window.location.origin,
