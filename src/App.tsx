@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react"
 import { Cover } from "./component/cover"
 import { Location } from "./component/location"
 import "./App.scss"
@@ -46,6 +47,7 @@ function App() {
 
         <ShareButton />
       </div>
+      <Analytics />
     </div>
   )
 }
